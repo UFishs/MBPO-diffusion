@@ -1,6 +1,6 @@
 # Diffusion Model-based RL: Diffusion Dynamic Model
 
-This repository implements MBPO with diffusion models as the dynamics model. The code is based on the original MBPO implementation in [mbrl-lib](https://github.com/facebookresearch/mbrl-lib), and the diffusion model code is based on [diamond](https://github.com/eloialonso/diamond). 
+This repository implements MBPO with diffusion models as the dynamics model. The code is based on the original MBPO implementation in [mbrl-lib](https://github.com/facebookresearch/mbrl-lib), and the diffusion model code is based on [diamond](https://github.com/eloialonso/diamond). This repo can be found in [MBPO-diffusion](https://github.com/UFishs/MBPO-diffusion).
 
 
 
