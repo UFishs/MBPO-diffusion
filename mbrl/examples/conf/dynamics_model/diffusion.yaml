@@ -8,7 +8,7 @@ name: diffusion
 
 diffusion_sampler:
   _target_: models.diffusion.DiffusionSamplerConfig
-  d: 3
+  num_steps_denoising: 3
   sigma_min: 2e-3
   sigma_max: 5.0
   rho: 7
