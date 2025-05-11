@@ -1,7 +1,7 @@
 defaults:
-  - algorithm: pets
+  - algorithm: mbpo
   - dynamics_model: gaussian_mlp_ensemble
-  - overrides: pets_cartpole
+  - overrides: mbpo_ant
   - action_optimizer: cem
 
 seed: 0
@@ -15,7 +15,7 @@ experiment: default
 root_dir: "./exp"
 hydra:
   run:
-    dir: ${root_dir}/${algorithm.name}/${experiment}/${overrides.env}/${now:%Y.%m.%d}/${now:%H%M%S}
+    dir: ${root_dir}/${algorithm.name}-${dynamics_model.name}/${experiment}/${overrides.env}/${now:%Y.%m.%d}/${now:%H%M%S}
 
   sweep:
-    dir: ${root_dir}/${algorithm.name}/${experiment}/${overrides.env}/${now:%Y.%m.%d}/${now:%H%M%S}
+    dir: ${root_dir}/${algorithm.name}-${dynamics_model.name}/${experiment}/${overrides.env}/${now:%Y.%m.%d}/${now:%H%M%S}

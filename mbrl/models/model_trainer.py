@@ -203,7 +203,8 @@ class ModelTrainer:
                     best_val_score,
                 )
 
-            if patience and epochs_since_update >= patience:
+            # TODO: Hardcode 10
+            if (patience and epochs_since_update >= patience) or (epoch > 80):
                 break
 
         # saving the best models:
@@ -290,6 +291,8 @@ class ModelTrainer:
     ):
         if best_weights is not None:
             self.model.load_state_dict(best_weights)
+            # TODO: Hardcode for return
+            return
         if len(best_val_score) > 1 and hasattr(self.model, "num_elites"):
             sorted_indices = np.argsort(best_val_score.tolist())
             elite_models = sorted_indices[: self.model.num_elites]

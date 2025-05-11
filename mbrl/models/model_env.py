@@ -135,7 +135,7 @@ class ModelEnv:
 
             if self._return_as_np:
                 next_observs = next_observs.cpu().numpy()
-                rewards = rewards.cpu().numpy()
+                rewards = rewards.cpu().numpy() if rewards is not None else None
                 dones = dones.cpu().numpy()
             return next_observs, rewards, dones, next_model_state
 

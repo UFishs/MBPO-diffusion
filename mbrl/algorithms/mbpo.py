@@ -55,7 +55,7 @@ def rollout_model_and_populate_sac_buffer(
             obs[~accum_dones],
             action[~accum_dones],
             pred_next_obs[~accum_dones],
-            pred_rewards[~accum_dones, 0],
+            pred_rewards[~accum_dones, 0] if pred_rewards is not None else np.zeros_like(pred_dones[~accum_dones, 0]),
             pred_dones[~accum_dones, 0],
             truncateds[~accum_dones, 0],
         )

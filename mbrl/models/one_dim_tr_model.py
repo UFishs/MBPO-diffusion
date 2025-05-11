@@ -99,6 +99,8 @@ class OneDTransitionRewardModel(Model):
         self.num_elites = num_elites
         if not num_elites and isinstance(self.model, Ensemble):
             self.num_elites = self.model.num_members
+        if self.num_elites is None:
+            del self.num_elites
 
     def _get_model_input(
         self,

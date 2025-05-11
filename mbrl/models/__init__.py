@@ -15,3 +15,4 @@ from .util import (
     EnsembleLinearLayer,
     truncated_normal_init,
 )
+from .diffusion_dynamic import DiffusionBasedDynamics

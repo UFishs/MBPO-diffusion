@@ -26,3 +26,7 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+imgs/
+draw*
+z.txt

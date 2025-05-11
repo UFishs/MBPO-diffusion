@@ -78,6 +78,7 @@ class GaussianMLP(Ensemble):
         propagation_method: Optional[str] = None,
         learn_logvar_bounds: bool = False,
         activation_fn_cfg: Optional[Union[Dict, omegaconf.DictConfig]] = None,
+        **kwargs: Any,
     ):
         super().__init__(
             ensemble_size, device, propagation_method, deterministic=deterministic

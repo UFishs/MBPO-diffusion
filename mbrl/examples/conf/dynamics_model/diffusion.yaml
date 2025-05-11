@@ -1,0 +1,40 @@
+# @package _group_
+_target_: mbrl.models.DiffusionBasedDynamics
+design: EDM
+device: ${device}
+in_size: ???
+out_size: ???
+name: diffusion
+
+diffusion_sampler:
+  _target_: models.diffusion.DiffusionSamplerConfig
+  d: 3
+  sigma_min: 2e-3
+  sigma_max: 5.0
+  rho: 7
+  order: 1  # 1: Euler, 2: Heun
+  s_churn: 0.0  # Amount of stochasticity
+  s_tmin: 0.0
+  s_tmax: 1e7
+  s_noise: 1.0
+
+
+denoiser:
+  _target_: models.diffusion.DenoiserConfig
+  sigma_data: 0.5
+  sigma_offset_noise: 0.3
+  inner_model:
+    _target_: models.diffusion.InnerModelConfig
+    num_steps_conditioning: 1
+    num_actions: 8
+    state_dim: 27
+    cond_channels: 64
+    hidden_dims: [32, 32]
+    learned_reward: ${algorithm.learned_rewards}
+
+sigma_distribution: 
+    _target_: models.diffusion.SigmaDistributionConfig
+    loc: -0.4
+    scale: 1.2
+    sigma_min: 2e-3
+    sigma_max: 20
